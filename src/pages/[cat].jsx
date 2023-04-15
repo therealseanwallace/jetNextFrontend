@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "@/styles/Home.module.css";
 import Header from "@/components/Header";
 import Results from "@/components/Results";
 import fetchFullName from "@/helpers/fetchFullName";
+import Pagination from '@etchteam/next-pagination';
 
-const Cat = (props) => {
-  console.log("Cat! Props are ", props);
-  const { tenders } = props;
+const { useState } = React;
+
+const Cat = ( { tenders }) => {
+  const [ tendersToUse, setTendersToUse ] = useState(tenders.docs);
+
+  
   const router = useRouter();
   const { cat } = router.query;
   const fullName = fetchFullName(cat);
+  
+  useEffect(() => {
+    setTendersToUse(tenders.docs);
+  }, [tenders]);
 
   return (
     <>
@@ -26,7 +34,9 @@ const Cat = (props) => {
       </Head>
       <main className={styles.main}>
         <Header catName={fullName} />
-        <Results tenders={tenders} cat={cat}/>
+        <Pagination total={tenders.totalDocs} />
+        <Results tenders={tendersToUse}/>
+        <Pagination total={tenders.totalDocs} />
       </main>
     </>
   );
@@ -34,11 +44,9 @@ const Cat = (props) => {
 
 export default Cat;
 
-
-
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps( { query, params }, ) {
   const categoryTenders = await fetch(
-    `http://localhost:3001/api/tenders/category/${params.cat}/page/0/onlyShowActive/true`
+    `http://localhost:3001/api/tenders/category/${params.cat}/page/${query.page}/onlyShowActive/true`
   );
   const tenders = await categoryTenders.json();
 
