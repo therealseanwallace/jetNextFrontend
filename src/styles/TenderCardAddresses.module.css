@@ -1,0 +1,27 @@
+.tendercardaddresses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;   
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.tendercardaddress {
+  font-size: 0.9rem;
+  padding: 3px 12px;
+  background-color: var(--teal);
+  border-radius: 4px;
+  font-weight: 500;
+  border-radius: 4px;
+  color: #000;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.addresstitle {
+  font-weight: 500;
+  margin-right: 4px;
+}

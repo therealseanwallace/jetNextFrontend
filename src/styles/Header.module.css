@@ -1,0 +1,20 @@
+.headertitle {
+  font-size: 2.8rem;
+  letter-spacing: 0.05rem;
+  font-weight: 800;
+}
+
+.headertext {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 24px;
+  letter-spacing: 0.05rem;
+}
+
+@media screen and (min-width: 768px) {
+  .headertext {
+    padding-right: 30%;
+  }
+}
+  
+/* } */

@@ -1,15 +1,20 @@
 import React from "react";
 import Selectors from "./Selectors";
 
-const Header = () => {
+import styles from "@/styles/Header.module.css";
+
+const Header = ({ toggleOnlyShowActive, onlyShowActive }) => {
   return (
-    <header>
-      <h1 className="header-title">Just Education Tenders</h1>
-      <h2 className="header-text">
+    <header className={styles.header}>
+      <h1 className={styles.headertitle}>Just Education Tenders</h1>
+      <h2 className={styles.headertext}>
         UK Education Tenders updated in real time - always free and no signup
         needed
       </h2>
-      <Selectors />
+      <Selectors
+        onlyShowActive={onlyShowActive}
+        toggleOnlyShowActive={toggleOnlyShowActive}
+      />
     </header>
   );
 };

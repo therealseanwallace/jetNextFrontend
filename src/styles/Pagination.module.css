@@ -1,0 +1,32 @@
+.next-pagination {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.next-pagination__list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.next-pagination__item {
+  list-style: none;
+  flex-shrink: 0;
+  font-size: 1.4rem;
+}
+
+.next-pagination__item > a {
+  color: black;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.next-pagination__item > a:hover {
+  background-color: var(--buttonHover)
+}
+
+.next-pagination__form {
+  display: none;
+}

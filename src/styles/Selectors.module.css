@@ -1,0 +1,14 @@
+.selectors {
+  margin-top: 24px;
+}
+
+.heading {
+  margin-top: 24px;
+  font-size: 1.8rem;
+}
+
+.categorybuttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
