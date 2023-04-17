@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
+import styles from "@/styles/TenderCardAddresses.module.css";
 
-const TenderCardAddresses = ( { addresses } ) => {
+const TenderCardAddresses = ({ addresses }) => {
   const addressesToDisplay = [];
   for (let i = 0; i < addresses.length; i += 1) {
     const address = addresses[i][0];
@@ -31,15 +32,17 @@ const TenderCardAddresses = ( { addresses } ) => {
     }
   }
   return (
-    <div className="tender-card-addresses">
-      <span className="tender-card-address-label">Delivery addresses:</span>
-      {addressesToDisplay.map((address) => (
-        <p key={uuidv4()} className="tender-card-address">
-          {address}
-        </p>
-      ))}
+    <div>
+      <h3 className={styles.addresstitle}>Delivery addresses:</h3>
+      <div className={styles.tendercardaddresses}>
+        {addressesToDisplay.map((address) => (
+          <p key={uuidv4()} className={styles.tendercardaddress}>
+            {address}
+          </p>
+        ))}
+      </div>
     </div>
-  )
+  );
 };
 
 export default TenderCardAddresses;

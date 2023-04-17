@@ -2,6 +2,7 @@ import Collapsible from "react-collapsible";
 import { v4 as uuidv4 } from "uuid";
 import TenderCardAddresses from "./TenderCardAddresses";
 import Parties from "./Parties";
+import styles from "@/styles/TenderCard.module.css";
 
 const TenderCard = ({ tender }) => {
   const tags = [];
@@ -52,9 +53,9 @@ const TenderCard = ({ tender }) => {
               window.open(tender.submissionMethod.value);
             }}
             type="button"
-          >
+            className={styles.submissionlink}          >
             Link to submission{" "}
-            <span className="new-tab">{"(opens new tab)"}</span>
+            <span className={styles.newtab}>{"(opens new tab)"}</span>
           </button>
         );
       }
@@ -70,8 +71,9 @@ const TenderCard = ({ tender }) => {
   const generateEndDate = () => {
     if (tender.endDate) {
       return (
-        <p className="tender-card-end-date">
-          <span>End date:</span> {tender.endDate}
+        <p>
+          <span className={styles.valuelabel}>End date:</span>{" "}
+          <span className={styles.value}>{tender.endDate}</span>{" "}
         </p>
       );
     }
@@ -81,8 +83,9 @@ const TenderCard = ({ tender }) => {
   const generateValue = () => {
     if (tender.value) {
       return (
-        <p className="tender-card-value">
-          <span>Value:</span> {tender.value}
+        <p>
+          <span className={styles.valuelabel}>Value:</span>{" "}
+          <span className={styles.value}>{tender.value}</span>
         </p>
       );
     }
@@ -90,30 +93,32 @@ const TenderCard = ({ tender }) => {
   };
 
   const returnCollapsibleButton = (content) => (
-      <button className="collapsible-button" type="button">
-        <p className="collapsible-button-text">{content}</p>
-      </button>
-    );
+    <button className={styles.collapsiblebutton} type="button">
+      <p className={styles.collapsiblebuttontext}>{content}</p>
+    </button>
+  );
 
   return (
-    <div className="tender-card">
-      <div className="tender-card-upper">
-        <h2 className="tender-card-title">{tender.title}</h2>
-        <p className="tender-card-buyer">{tender.parties[0].name}</p>
+    <div className={styles.tendercard}>
+      <div className={styles.tendercardupper}>
+        <h2 className={styles.tendercardtitle}>{tender.title}</h2>
+        <p className={styles.tendercardbuyer}>{tender.parties[0].name}</p>
         {generateValue()}
-        {generateSubmissionMethod()}
-        <p className="tender-card-date">
-          <span>Released:</span> {tender.date}
+        
+        <p>
+          <span className={styles.valuelabel}>Released:</span>{" "}
+          <span className={styles.value}>{tender.date}</span>
         </p>
         {generateEndDate()}
-        <div className="tags">
-          <h2 className="tags-title">Tags: </h2>
+        {generateSubmissionMethod()}
+        <div className={styles.tags}>
+          <h3>Tags: </h3>
           {tagsMap}
         </div>
         {<TenderCardAddresses addresses={tender.deliveryAddresses} />}
       </div>
       <hr />
-      <p className="card-instructions">Click description/parties to expand</p>
+      <p className={styles.expandinstructions}>Click description/parties to expand</p>
 
       <Collapsible
         trigger={returnCollapsibleButton("Description")}
