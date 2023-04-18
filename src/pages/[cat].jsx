@@ -69,8 +69,12 @@ const Cat = ({ tenders }) => {
 export default Cat;
 
 export async function getServerSideProps({ query, params }) {
+  let { page, onlyShowActive } = query;
+  const { cat } = params;
+  if (!page) page = 1;
+  if (!onlyShowActive) onlyShowActive = true;
   const categoryTenders = await fetch(
-    `http://localhost:3001/api/tenders/category/${params.cat}/page/${query.page}/onlyShowActive/${query.onlyShowActive}`
+    `http://localhost:3001/api/tenders/category/${cat}/page/${page}/onlyShowActive/${onlyShowActive}`
   );
   const tenders = await categoryTenders.json();
 
