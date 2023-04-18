@@ -38,7 +38,7 @@ const Footer = ({ togglePrivacyPolicy }) => {
       </div>
       <div className="version-container">
         <strong>Version:</strong> 0.4.0 <br />
-        <strong>Release date:</strong> 18/4/2023
+        <strong>Release date:</strong> 18/4/2023 <br />
         <strong>Release notes:</strong>
         <ul>
           <li>Migrated frontend to Next.js</li>
@@ -49,8 +49,7 @@ const Footer = ({ togglePrivacyPolicy }) => {
         <p className="copyright-statement">
           Designed and Developed by Sean Patrick Wallace © 2023
         </p>
-      </div>
-      <div className={styles.sociallinks}>
+        <div className={styles.sociallinks}>
         <a href="https://github.com/therealseanwallace/freeEducationTenders">
           <Image
             src={githubLogo}
@@ -66,38 +65,11 @@ const Footer = ({ togglePrivacyPolicy }) => {
           />
         </a>
       </div>
+      </div>
+      
     </footer>
   );
 };
 
 export default Footer;
 
-/*
-
-   
-
-
-        <div className={styles.copyrightstatementsociallinkscontainer}>
-          <p className="copyright-statement">
-            Designed and Developed by Sean Patrick Wallace © 2023
-          </p>
-          <div className={styles.sociallinks}>
-            <a href="https://github.com/therealseanwallace/freeEducationTenders">
-              <Image
-                src={githubLogo}
-                alt="GitHub link"
-                className={styles.sociallink}
-              />
-            </a>
-            <a href="https://www.linkedin.com/in/sean-wallace-338a53198/">
-              <Image
-                src={linkedInLogo}
-                alt="LinkedIn link"
-                className={styles.sociallink}
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-
-  */
