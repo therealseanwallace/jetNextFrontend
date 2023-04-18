@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Montserrat } from "next/font/google";
+// eslint-disable-next-line no-unused-vars
 import styles from "@/styles/globals.css";
 
 const montserrat = Montserrat({

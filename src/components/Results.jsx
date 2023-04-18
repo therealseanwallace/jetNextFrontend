@@ -7,7 +7,6 @@ import PrivacyPolicy from "@/components/PrivacyPolicy";
 
 
 const Results = ( { tenders, togglePrivacyPolicy, showPrivacyPolicy } ) => {
-  console.log('Results! tenders', tenders);
   if (!showPrivacyPolicy) return (
     <div className={styles.resultsdisplay}>
       {tenders.map((tender) => (
