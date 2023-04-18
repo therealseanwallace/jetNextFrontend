@@ -4,25 +4,22 @@ import linkedInLogo from "../assets/LI-In-Bug.png";
 import styles from "@/styles/Footer.module.css";
 
 const Footer = ({ togglePrivacyPolicy }) => {
-
   return (
     <footer>
       <hr />
       <div className="footer-top">
-      <button onClick={togglePrivacyPolicy} type="button" className={styles.button}>
+        <button
+          onClick={togglePrivacyPolicy}
+          type="button"
+          className={styles.button}
+        >
           Toggle Privacy Policy
         </button>
-        <p className="version-statement">
-          <h3>Please note:</h3> This web application is in a pre-release or beta
-          stage of development and may undergo unplanned changes or shutdowns or
-          delays in loading results.
-          <br />
-          Several features have yet to be added, including sorting and filtering
-          of tenders.
-          <br />
-        </p>
+        <h3>Please note:</h3> This web application is in a pre-release or beta
+        stage of development and may undergo unplanned changes or shutdowns or
+        delays in loading results.
       </div>
-      <div className="footer-bottom">
+      <div className="footerbottom">
         <p className="disclaimer">
           Contains public sector information licensed under the Open Government
           Licence v3.0. <br />
@@ -38,39 +35,61 @@ const Footer = ({ togglePrivacyPolicy }) => {
           Do NOT base your bidding decisions on this information -{" "}
           <strong>always</strong> check official sources!
         </p>
+      </div>
+      <div className="version-container">
+        <strong>Version:</strong> 0.4.0 <br />
+        <strong>Release date:</strong> 18/4/2023
+        <strong>Release notes:</strong>
+        <ul>
+          <li>Migrated frontend to Next.js</li>
+          <li>Added dynamic routes and automatic fetching of tenders</li>
+        </ul>
+      </div>
+      <div className={styles.copyrightstatementsociallinkscontainer}>
+        <p className="copyright-statement">
+          Designed and Developed by Sean Patrick Wallace © 2023
+        </p>
+      </div>
+      <div className={styles.sociallinks}>
+        <a href="https://github.com/therealseanwallace/freeEducationTenders">
+          <Image
+            src={githubLogo}
+            alt="GitHub link"
+            className={styles.sociallink}
+          />
+        </a>
+        <a href="https://www.linkedin.com/in/sean-wallace-338a53198/">
+          <Image
+            src={linkedInLogo}
+            alt="LinkedIn link"
+            className={styles.sociallink}
+          />
+        </a>
+      </div>
+    </footer>
+  );
+};
 
-        <hr />
+export default Footer;
 
-        <div className="version-container">
-          <strong>Version:</strong> 0.4.0 <br />
-          <strong>Release date:</strong> 18/4/2023
-          <br />
-          <p>
-            <strong>Release notes:</strong>
-            <ul>
-              <li>Migrated frontend to Next.js</li>
-              <li>Added dynamic routes and automatic fetching of tenders</li>
-            </ul>
-          </p>
-        </div>
-        <hr />
+/*
+
+   
+
+
         <div className={styles.copyrightstatementsociallinkscontainer}>
           <p className="copyright-statement">
             Designed and Developed by Sean Patrick Wallace © 2023
           </p>
           <div className={styles.sociallinks}>
-            <a
-              href="https://github.com/therealseanwallace/freeEducationTenders"
-            >
+            <a href="https://github.com/therealseanwallace/freeEducationTenders">
               <Image
                 src={githubLogo}
                 alt="GitHub link"
                 className={styles.sociallink}
               />
             </a>
-            <a
-              href="https://www.linkedin.com/in/sean-wallace-338a53198/"
-            >
+            <a href="https://www.linkedin.com/in/sean-wallace-338a53198/">
               <Image
                 src={linkedInLogo}
                 alt="LinkedIn link"
@@ -80,8 +99,5 @@ const Footer = ({ togglePrivacyPolicy }) => {
           </div>
         </div>
       </div>
-    </footer>
-  );
-};
 
-export default Footer;
+  */
