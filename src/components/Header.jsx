@@ -3,7 +3,7 @@ import Selectors from "./Selectors";
 
 import styles from "@/styles/Header.module.css";
 
-const Header = ({ toggleOnlyShowActive, onlyShowActive }) => {
+const Header = ({ toggleOnlyShowActive, onlyShowActive, cat, catName }) => {
   return (
     <header className={styles.header}>
       <h1 className={styles.headertitle}>Just Education Tenders</h1>
@@ -14,6 +14,8 @@ const Header = ({ toggleOnlyShowActive, onlyShowActive }) => {
       <Selectors
         onlyShowActive={onlyShowActive}
         toggleOnlyShowActive={toggleOnlyShowActive}
+        cat={cat}
+        catName={catName}
       />
     </header>
   );

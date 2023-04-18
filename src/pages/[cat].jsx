@@ -45,6 +45,7 @@ const Cat = ({ tenders }) => {
       </Head>
       <main className={styles.main}>
         <Header
+          cat={cat}
           catName={fullName}
           onlyShowActive={onlyShowActive}
           toggleOnlyShowActive={toggleOnlyShowActive}
@@ -81,6 +82,8 @@ export async function getServerSideProps({ query, params }) {
   return {
     props: {
       tenders,
+      cat,
+      
     },
     // revalidate: 900,
   };
