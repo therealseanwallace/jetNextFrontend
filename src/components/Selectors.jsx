@@ -7,7 +7,7 @@ import styles from "@/styles/Selectors.module.css";
 const Selectors = ({ toggleOnlyShowActive, onlyShowActive }) => {
   console.log("categories", categories);
   const categoryButtons = categories.map((category) => (
-    <CategoryButton key={uuidv4()} name={category.name} slug={category.slug} />
+    <CategoryButton key={uuidv4()} name={category.name} slug={category.slug} onlyShowActive={onlyShowActive}/>
   ));
 
   return (
