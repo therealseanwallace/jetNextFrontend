@@ -8,6 +8,16 @@
   text-decoration: none;
 }
 
+.buttonselected {
+  border-radius: 4px;
+  border: 0;
+  background-color: var(--buttonHover);
+  padding: 6px 24px;
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
+}
+
 .button:hover {
   cursor: pointer !important;
   background-color: var(--buttonHover);
