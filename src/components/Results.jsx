@@ -6,7 +6,7 @@ import styles from "@/styles/Results.module.css";
 import PrivacyPolicy from "@/components/PrivacyPolicy";
 
 
-const Results = ( { tenders, showPrivacyPolicy } ) => {
+const Results = ( { tenders, togglePrivacyPolicy, showPrivacyPolicy } ) => {
   console.log('Results! tenders', tenders);
   if (!showPrivacyPolicy) return (
     <div className={styles.resultsdisplay}>
@@ -18,7 +18,7 @@ const Results = ( { tenders, showPrivacyPolicy } ) => {
   )
   return (
     <div className={styles.resultsdisplay}>
-      <PrivacyPolicy />
+      <PrivacyPolicy togglePrivacyPolicy={togglePrivacyPolicy} />
     </div>
 
   )

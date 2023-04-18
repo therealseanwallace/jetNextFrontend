@@ -54,7 +54,7 @@ const Cat = ({ tenders }) => {
           sizes={[20]}
           theme={paginatorStyles}
         />
-        <Results tenders={tendersToUse} showPrivacyPolicy={showPrivacyPolicy}/>
+        <Results tenders={tendersToUse} togglePrivacyPolicy={togglePrivacyPolicy} showPrivacyPolicy={showPrivacyPolicy}/>
         <Pagination
           total={tenders.totalDocs}
           sizes={[20]}

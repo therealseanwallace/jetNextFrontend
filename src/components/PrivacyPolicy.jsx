@@ -1,6 +1,8 @@
+import styles from "@/styles/PrivacyPolicy.module.css";
+
 const PrivacyPolicy = ( { togglePrivacyPolicy }) => (
   <div>
-    <button onClick={togglePrivacyPolicy} type="button">Close privacy policy</button>
+    <button onClick={togglePrivacyPolicy} type="button" className={styles.button}>Toggle privacy policy</button>
 
     <h1>Privacy Policy for justeducationtenders.co.uk</h1>
 
