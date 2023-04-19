@@ -1,0 +1,13 @@
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.role {
+  background-color: var(--planning);
+  padding: 4px 12px;
+  border-radius: 8px;
+}
