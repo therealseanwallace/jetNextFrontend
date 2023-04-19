@@ -27,10 +27,11 @@
 
 .submissionlink:hover {
   background-color: var(--buttonHover);
+  cursor: pointer;
 }
 
 .collapsiblebutton {
-  margin: 4px 0 4px 8px;
+  margin: 4px 0 4px 0px;
   border-radius: 4px;
   border: 0;
   background-color: var(--buttonBlue);
