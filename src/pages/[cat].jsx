@@ -32,7 +32,7 @@ const Cat = ({ tenders }) => {
 
   const togglePrivacyPolicy = () => {
     setShowPrivacyPolicy(!showPrivacyPolicy);
-  }
+  };
 
   useEffect(() => {
     setTendersToUse(tenders.docs);
@@ -55,13 +55,17 @@ const Cat = ({ tenders }) => {
           sizes={[20]}
           theme={paginatorStyles}
         />
-        <Results tenders={tendersToUse} togglePrivacyPolicy={togglePrivacyPolicy} showPrivacyPolicy={showPrivacyPolicy}/>
+        <Results
+          tenders={tendersToUse}
+          togglePrivacyPolicy={togglePrivacyPolicy}
+          showPrivacyPolicy={showPrivacyPolicy}
+        />
         <Pagination
           total={tenders.totalDocs}
           sizes={[20]}
           theme={paginatorStyles}
         />
-        <Footer togglePrivacyPolicy={togglePrivacyPolicy}/>
+        <Footer togglePrivacyPolicy={togglePrivacyPolicy} />
       </main>
     </>
   );
@@ -69,7 +73,7 @@ const Cat = ({ tenders }) => {
 
 export default Cat;
 
-export async function getServerSideProps({ query, params }) {
+export async function getServerSideProps({ query, params, res }) {
   let { page, onlyShowActive } = query;
   const { cat } = params;
   if (!page) page = 1;
@@ -78,12 +82,11 @@ export async function getServerSideProps({ query, params }) {
     `http://api.justeducationtenders.co.uk/api/tenders/category/${cat}/page/${page}/onlyShowActive/${onlyShowActive}`
   );
   const tenders = await categoryTenders.json();
-
+  res.setHeader("Cache-Control", "s-maxage=900, stale-while-revalidate");
   return {
     props: {
       tenders,
       cat,
-      
     },
     // revalidate: 900,
   };
