@@ -79,7 +79,11 @@ export async function getServerSideProps({ query, params, res }) {
   if (!page) page = 1;
   if (!onlyShowActive) onlyShowActive = true;
   const categoryTenders = await fetch(
-    `https://api.justeducationtenders.co.uk/api/tenders/category/${cat}/page/${page}/onlyShowActive/${onlyShowActive}`
+    `https://api.justeducationtenders.co.uk/api/tenders/category/${cat}/page/${page}/onlyShowActive/${onlyShowActive}`,
+    {
+      method: "GET",
+      mode: "cors"
+    }
   );
   console.log('categoryTenders', categoryTenders);
   const tenders = await categoryTenders.json();
