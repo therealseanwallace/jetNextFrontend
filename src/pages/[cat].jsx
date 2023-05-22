@@ -77,9 +77,7 @@ const Cat = ({ tenders }) => {
 export default Cat;
 
 export async function getServerSideProps({ query, params, res }) {
-
   let { page, onlyShowActive } = query;
-  if (!onlyShowActive) onlyShowActive = true;
   const { cat } = params;
   if (!page) page = 1;
   if (!onlyShowActive) onlyShowActive = true;
