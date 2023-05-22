@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
 
-const MONGO_URL = process.env.MONGO_URL;
+const {MONGO_URL} = process.env;
 
 let cached = global.mongoose;
 
 if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
+  cached = global.mongoose;
+  global.mongoose = { conn: null, promise: null };
 }
 
 async function connect() {
@@ -14,8 +15,8 @@ async function connect() {
   }
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGO_URL).then((mongoose) => {
-      return mongoose;
+    cached.promise = mongoose.connect(MONGO_URL).then((mongo) => {
+      return mongo;
     });
   }
   cached.conn = await cached.promise;

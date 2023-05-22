@@ -25,13 +25,16 @@ const TenderSchema = new Schema({
 
 TenderSchema.plugin(mongoosePaginate);
 
-let TenderModel;
+let TenderModelPre;
 
 try {
-  TenderModel = mongoose.model("Tenders", TenderSchema);
+  TenderModelPre = mongoose.model("Tenders", TenderSchema);
 } catch (e) {
   if (e.name === 'OverwriteModelError') {
-    TenderModel = mongoose.model("Tenders");
+    TenderModelPre = mongoose.model("Tenders");
   }
 }
+
+const TenderModel = TenderModelPre;
+
 export default TenderModel;
