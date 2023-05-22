@@ -1,38 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Just Education Tenders](https://justeducationtenders.co.uk)
+Live link ☝️
 
-## Getting Started
+## Description
 
-First, run the development server:
+This app displays UK Education tenders sourced from official sources and updated in near-real time.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+This full stack app comprises two main components at present:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- An API crawler built in Node.JS and running 24/7 on an AWS Lightsail VM (hooray for three-month free trials!)
+The crawler filters out education tenders and processes them into an object containing only the info we need for the front end. It then saves the tenders
+to MongoDB using Mongoose. At this time, this is the only piece of code in this repo which is still running in production!
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- A Next.JS app hosted with Vercel. See below for [REPO](https://github.com/therealseanwallace/jetNextFrontend):
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- ~~A Node.JS/Express app which presents a RESTful API with a single GET route which the client can use to get tenders from the database.~~ This is now deprecated. The code is in the old [repo](https://github.com/therealseanwallace/freeEducationTenders) for posterityu, but I'm instead using Next.JS' getServerSideProps to fetch data directly from MongoDB using Mongoose.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Motivation
 
-## Learn More
+I built this app for a few reasons:
 
-To learn more about Next.js, take a look at the following resources:
+- I saw problems with several of the other places people go to find tenders in my industry, such as complex interfaces, signups required, and sometimes even payment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- I was ready to flex my muscles building a full-stack app with some more complex functionality
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- I'm a strong believer in the principles of free and open tendering AND the free software movement so this combination presented a golden opportunity to develop my skills in full-stack development.
 
-## Deploy on Vercel
+## Key Learning
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Develop further my skills in Node JS, Express, and Next.JS and how to apply the same skills to solving real-world problems
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Gained proficiency in the full workflow of deploying and releasing an app in the wild including:
+    * Domain registration
+    * DNS config and configuring GitHub pages to use custom domain
+    * Deployment to Heroku
+    * Creation and config via SSH of a AWS Lightsail VM to run my API crawler service
+
+## Technology
+
+- Built using a MERN stack featuring:
+   * A RESTful API built using Express
+   * A discrete crawler service which gets tenders from UK government APIs
+   * A single-page React / Next.JS app which gets tenders from our API and displays them to users
+
+## Roadmap
+
+~~- Consider getting rid of the Express API and taking advantage of Next.JS's ability to get info directly from the database.~~ DONE!
+
+## Acknowledgements
+
+- Contains public sector information licensed under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/").
+
+- Loading gif by Nevit Dilmen at [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lightness_rotate_36f_cw.gif), licensed under [GNU Free Documentation License, version 1.2]()
+
+## License
+
+This is free software available under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
