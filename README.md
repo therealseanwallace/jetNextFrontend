@@ -13,7 +13,7 @@ to MongoDB using Mongoose. At this time, this is the only piece of code in this 
 
 - A Next.JS app hosted with Vercel. See below for [REPO](https://github.com/therealseanwallace/jetNextFrontend):
 
-- ~~A Node.JS/Express app which presents a RESTful API with a single GET route which the client can use to get tenders from the database.~~ This is now deprecated. The code is in the old [repo](https://github.com/therealseanwallace/freeEducationTenders) for posterityu, but I'm instead using Next.JS' getServerSideProps to fetch data directly from MongoDB using Mongoose.
+- ~~A Node.JS/Express app which presents a RESTful API with a single GET route which the client can use to get tenders from the database.~~ This is now deprecated. The code is in the old [repo](https://github.com/therealseanwallace/freeEducationTenders) for posterity, but I'm instead using Next.JS' getServerSideProps to fetch data directly from MongoDB using Mongoose.
 
 
 ## Motivation
