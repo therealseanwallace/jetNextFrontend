@@ -5,8 +5,8 @@ const {MONGO_URL} = process.env;
 let cached = global.mongoose;
 
 if (!cached) {
-  cached = global.mongoose;
-  global.mongoose = { conn: null, promise: null };
+  cached = { conn: null, promise: null };
+  global.mongoose = cached;
 }
 
 async function connect() {
@@ -15,7 +15,12 @@ async function connect() {
   }
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGO_URL).then((mongo) => {
+    const opts = {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    };
+
+    cached.promise = mongoose.connect(MONGO_URL, opts).then((mongo) => {
       return mongo;
     });
   }

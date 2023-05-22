@@ -76,31 +76,6 @@ const Cat = ({ tenders }) => {
 
 export default Cat;
 
-/* export async function getServerSideProps({ query, params, res }) {
-  let { page, onlyShowActive } = query;
-  const { cat } = params;
-  if (!page) page = 1;
-  if (!onlyShowActive) onlyShowActive = true;
-  const categoryTenders = await fetch(
-    `https://api.justeducationtenders.co.uk/api/tenders/category/${cat}/page/${page}/onlyShowActive/${onlyShowActive}`,
-    {
-      method: "GET",
-      mode: "cors"
-    }
-  );
-  console.log('categoryTenders', categoryTenders);
-  const tenders = await categoryTenders.json();
-  res.setHeader("Cache-Control", "s-maxage=900, stale-while-revalidate");
-  return {
-    props: {
-      tenders,
-      cat,
-    },
-    // revalidate: 900,
-  };
-} */
-
-
 export async function getServerSideProps({ query, params, res }) {
 
   let { page, onlyShowActive } = query;
