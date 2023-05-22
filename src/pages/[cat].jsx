@@ -8,6 +8,9 @@ import Results from "@/components/Results";
 import fetchFullName from "@/helpers/fetchFullName";
 import paginatorStyles from "@/styles/Pagination.module.css";
 import Footer from "@/components/Footer";
+import getCategory from "@/helpers/getCategory";
+import queryDB from "@/helpers/queryDB";
+
 
 const { useState } = React;
 
@@ -73,7 +76,7 @@ const Cat = ({ tenders }) => {
 
 export default Cat;
 
-export async function getServerSideProps({ query, params, res }) {
+/* export async function getServerSideProps({ query, params, res }) {
   let { page, onlyShowActive } = query;
   const { cat } = params;
   if (!page) page = 1;
@@ -88,6 +91,35 @@ export async function getServerSideProps({ query, params, res }) {
   console.log('categoryTenders', categoryTenders);
   const tenders = await categoryTenders.json();
   res.setHeader("Cache-Control", "s-maxage=900, stale-while-revalidate");
+  return {
+    props: {
+      tenders,
+      cat,
+    },
+    // revalidate: 900,
+  };
+} */
+
+
+export async function getServerSideProps({ query, params, res }) {
+
+  let { page, onlyShowActive } = query;
+  const { cat } = params;
+  if (!page) page = 1;
+  if (!onlyShowActive) onlyShowActive = true;
+  const catArray = getCategory(cat).codes;
+  if (catArray === null) {
+    return res.status(404).json({ error: "Category not found" });
+  }
+  const response = await queryDB(catArray, page, onlyShowActive);
+  const tenderDocs = response.docs.map((tender) => {
+    const { _id, ...newTender } = tender.toObject();
+    return newTender;
+  });
+  const { docs, ...tenders } = {...response};
+  tenders.docs = tenderDocs;
+  res.setHeader("Cache-Control", "s-maxage=900, stale-while-revalidate");
+
   return {
     props: {
       tenders,
