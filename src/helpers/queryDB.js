@@ -15,7 +15,7 @@ const queryDB = async (categories, page, onlyShowActive) => {
       sort: { fullDate: -1 },
     };
     let query;
-    if (onlyShowActive === true) {
+    if (onlyShowActive === true || onlyShowActive === "true") {
       query = {
         classificationIDs: {
           $in: categories,
