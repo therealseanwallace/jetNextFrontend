@@ -39,9 +39,9 @@ I built this app for a few reasons:
 ## Technology
 
 - Built using a MERN stack featuring:
-   * A RESTful API built using Express
+   * ~~A RESTful API built using Express~~
    * A discrete crawler service which gets tenders from UK government APIs
-   * A single-page React / Next.JS app which gets tenders from our API and displays them to users
+   * A single-page React / Next.JS app which gets tenders from Mongoose/MongoDB using getServerSideProps.
 
 ## Roadmap
 
