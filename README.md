@@ -9,9 +9,9 @@ This full stack app comprises two main components at present:
 
 - An API crawler built in Node.JS and running 24/7 on an AWS Lightsail VM (hooray for three-month free trials!)
 The crawler filters out education tenders and processes them into an object containing only the info we need for the front end. It then saves the tenders
-to MongoDB using Mongoose. At this time, this is the only piece of code in this repo which is still running in production!
+to MongoDB using Mongoose. At this time, this is the only piece of code from the old project which is running in production!
 
-- A Next.JS app hosted with Vercel. See below for [REPO](https://github.com/therealseanwallace/jetNextFrontend):
+- A Next.JS frontend app hosted with Vercel which uses getServerSideProps to render the page server-side with some cachine using Cloudflare's free tier to reduce load on the server.
 
 - ~~A Node.JS/Express app which presents a RESTful API with a single GET route which the client can use to get tenders from the database.~~ This is now deprecated. The code is in the old [repo](https://github.com/therealseanwallace/freeEducationTenders) for posterity, but I'm instead using Next.JS' getServerSideProps to fetch data directly from MongoDB using Mongoose.
 
