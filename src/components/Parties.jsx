@@ -1,9 +1,8 @@
-import { v4 as uuidv4 } from "uuid";
 import styles from "@/styles/Parties.module.css";
 
 const Parties = ({ parties }) => (
   <div className="tender-card-parties">
-    {parties.map((party) => {
+    {parties.map((party, index) => {
       let email = "";
       let contactName = "";
       let url = "";
@@ -26,21 +25,21 @@ const Parties = ({ parties }) => (
         }
       }
       return (
-        <div key={uuidv4()}>
-          <p key={uuidv4()}>
+        <div key={index}>
+          <p key={index}>
             <strong>Party name:</strong> {party.name}
           </p>
-          <p key={uuidv4()}>
+          <p key={index}>
             <strong>Contact name:</strong> {contactName}
           </p>
-          <div key={uuidv4()}>
-            <strong>Contact email:</strong> <p key={uuidv4()}>{email}</p>
+          <div key={index}>
+            <strong>Contact email:</strong> <p key={index}>{email}</p>
           </div>
           <div>
-            <p key={uuidv4()}>
+            <p key={index}>
               <strong>Contact website:</strong> {url}
             </p>
-            <p key={uuidv4()}>
+            <p key={index}>
               <strong>Buyer website:</strong> {buyerProfile}
             </p>
           </div>
@@ -48,7 +47,7 @@ const Parties = ({ parties }) => (
             <strong>Roles:</strong>
             <div className={styles.roles}>
             {party.roles.map((role) => (
-              <p key={uuidv4()} className={styles.role}>{role}</p>
+              <p key={index} className={styles.role}>{role}</p>
             ))}
             </div>
           </div>

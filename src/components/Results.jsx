@@ -9,8 +9,8 @@ import PrivacyPolicy from "@/components/PrivacyPolicy";
 const Results = ( { tenders, togglePrivacyPolicy, showPrivacyPolicy } ) => {
   if (!showPrivacyPolicy) return (
     <div className={styles.resultsdisplay}>
-      {tenders.map((tender) => (
-        <TenderCard key={uuidv4()} tender={tender} />
+      {tenders.map((tender, index) => (
+        <TenderCard key={index} tender={tender} />
       ))}
       
     </div>

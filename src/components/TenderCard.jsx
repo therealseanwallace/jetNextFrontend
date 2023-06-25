@@ -1,5 +1,4 @@
 import Collapsible from "react-collapsible";
-import { v4 as uuidv4 } from "uuid";
 import TenderCardAddresses from "./TenderCardAddresses";
 import Parties from "./Parties";
 import styles from "@/styles/TenderCard.module.css";
@@ -8,7 +7,7 @@ const TenderCard = ({ tender }) => {
   const tags = [];
   tags.push(tender.tenderStatus);
   tags.push(...tender.tag);
-  const tagsMap = tags.map((tag) => {
+  const tagsMap = tags.map((tag, index) => {
     let uniqueClass;
     switch (tag) {
       case "planning":
@@ -37,7 +36,7 @@ const TenderCard = ({ tender }) => {
         break;
     }
     return (
-      <p key={uuidv4()} className={`tag ${uniqueClass}`}>
+      <p key={index} className={`tag ${uniqueClass}`}>
         {tag}
       </p>
     );

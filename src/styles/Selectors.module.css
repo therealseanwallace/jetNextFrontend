@@ -5,18 +5,25 @@
 .heading {
   margin-top: 24px;
   font-size: 1.8rem;
+  margin-bottom: 12px;
 }
 
 .categorybuttons {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 24px;
 }
 
 .textselected {
-  margin-top: 24px;
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 1.6rem;
+  font-weight: 400;
   color: black;
   text-decoration: none;
+}
+
+.textselected > span {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-right: 8px;
 }

@@ -15,6 +15,13 @@
   .headertext {
     padding-right: 30%;
   }
+
+  .headertitle {
+    font-size: 3.2rem;
+  }
+
+  .headertext {
+    font-size: 2.4rem;
+  }
 }
   
-/* } */
