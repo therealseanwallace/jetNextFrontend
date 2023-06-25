@@ -1,5 +1,4 @@
 
-import { v4 as uuidv4 } from "uuid";
 import React from 'react'
 import TenderCard from './TenderCard';
 import styles from "@/styles/Results.module.css";
