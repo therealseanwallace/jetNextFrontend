@@ -37,8 +37,8 @@ const Footer = ({ togglePrivacyPolicy }) => {
         </p>
       </div>
       <div className="version-container">
-        <strong>Version:</strong> 0.5.0 <br />
-        <strong>Release date:</strong> 22/5/2023 <br />
+        <strong>Version:</strong> 0.5.2 <br />
+        <strong>Release date:</strong> 12/7/2023 <br />
         <strong>Release notes:</strong>
         <ul>
           <li>Now fetches data directly from database using getServerSideProps rather than Express API.</li>
